@@ -1,4 +1,4 @@
-/* Global styles */
+
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
@@ -22,6 +22,19 @@ align-items: center;
 
 }
 
+header div a{
+color: #ffffff;
+text-align: center;
+text-decoration: none;
+
+}
+
+header div time{
+  color: #eb0707;
+
+
+}
+
 main{
 min-height: 500px;
 display:flex;
@@ -33,7 +46,7 @@ line-height: 2.0%;
 
 }
 
-  /* Quiz Title */
+ 
   #quiz-title {
     text-align: center;
     padding: 20px;
@@ -42,7 +55,7 @@ line-height: 2.0%;
   h1 {
     margin: 0;
     font-size: 2.5rem;
-    color: #333;
+    color: #f0e5e5;
   }
   
   .button {
@@ -56,20 +69,21 @@ line-height: 2.0%;
     margin-top: 20px;
   }
   
-  /* Quiz */
+ 
   #quiz {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    font-size: xx-large;
+ background-color: #e60707;
     border-radius: 10px;
   }
   
   .hidden {
-    display: none;
+   display: none;
   }
   
-  /* Questions */
+
   #questions {
     margin-bottom: 20px;
   }
@@ -82,7 +96,7 @@ line-height: 2.0%;
     font-size: 1.2rem;
     margin: 0;
     margin-bottom: 10px;
-    color: #333;
+    color: #eb0707;
   }
   
   .choices {
@@ -100,19 +114,19 @@ line-height: 2.0%;
     margin-right: 10px;
   }
   
-  /* Options */
+
   #options {
     margin-bottom: 20px;
   }
   
-  /* Message */
+ 
   #message {
     margin-bottom: 20px;
     font-size: 1.1rem;
     color: #333;
   }
   
-  /* Result */
+  
   #result {
     max-width: 800px;
     margin: 0 auto;
@@ -135,17 +149,15 @@ line-height: 2.0%;
     font-size: 1.1rem;
   }
   
-  /* View Scores */
+ 
   #viewScores {
     margin-right: 10px;
   }
   
-  /* Save Score */
   #saveScore {
     margin-right: 10px;
   }
   
-  /* Play Again */
   #playAgain {
     background-color: #333;
     color: #fff;

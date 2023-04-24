@@ -1,67 +1,114 @@
-// Get the necessary elements from the HTML document
-var startQuiz = document.getElementById('startQuiz');
-var saveScore= document.getElementById('saveScore');
-var viewScores = document.getElementById('viewScores');
-var playAgain = document.getElementById('playAgain');
 
-var welcome = document.getElementById("Welcome")
-var quiz = document.getElementById("quiz")
-var result = document.getElementById("result")
+const startQuiz = document.getElementById('startQuiz');
+const saveScore = document.getElementById('saveScore');
+const viewScores = document.getElementById('viewScores');
+const playAgain = document.getElementById('playAgain');
 
-var options = documnet.getElementById("options")
-var message = documnet.getElementById("message")
+const quizIntro = document.getElementById('quiz-title');
+const quiz = document.getElementById('quiz');
+const result = document.getElementById('result');
 
-var timer = documnet.getElementById("timer")
-var summary = documnet.getElementById("summary")
+const options = document.getElementById('options');
+const message = document.getElementById('message');
 
-var secondsLeft = 0;
-var score =0;
-var currentQuestion = 0;
-var countdownTimer;
+const timer = document.getElementById('timer');
+const summary = document.getElementById('summary');
 
-function stopGame(){
+let secondsLeft = 0;
+let score = 0;
+let currentQuestion = -1;
+let countdownTimer;
 
-clearInterval(countdownTimer);
 
-timer.textContent = ""
-
-quiz.style.display = 'none';
-result.style.display ='flex'
-
-summary.textContent = "Your Score Is" + score ;
-
+function stopGame() {
+  clearInterval(countdownTimer);
+  timer.textContent = '';
+  quiz.style.display = 'none';
+  result.style.display = 'flex';
+  summary.textContent = 'Your Score Is ' + score;
 }
 
-function onSaveScore(e){
-  var initial = document.getElementById("initials").value 
-  if(initals !==){
-    localStorage.setItem(initial,score);
-
-    document.getElementById("initials").value ="";
+function onSaveScore() {
+  const initials = document.getElementById('initials').value.trim();
+  if (initials !== '') {
+    localStorage.setItem(initials, score);
+    document.getElementById('initials').value = '';
   }
 }
 
-function onViewScores(e){
-window.location.href = 'scores.html';
-
-
+function onViewScores() {
+  window.location.href = 'assets/scores.html';
 }
 
-function onSelectAnswer(e){
-var correctAnswer = questions[currentQuestion].answer;
-var userAnswer = e.target.textContent;
+function onSelectAnswer(e) {
+  const correctAnswer = questions[currentQuestion].answer;
+  const userAnswer = e.target.textContent;
 
-if(correntAnswer === userAnswer){
-score++;
+  if (correctAnswer === userAnswer) {
+    score++;
+    displayMessage('Correct');
+  } else {
+    score--;
+    displayMessage('Wrong :-(');
+  }
 
-displayMessage('Correct')
-
-
-} else {
-score==;
-displayMessage('Wrong :-(')
-
-
+  displayQuestion();
 }
-displayQuestions();
+
+function displayMessage(msg) {
+  message.textContent = msg;
+
+  setTimeout(() => {
+    message.textContent = '';
+  }, 1000);
 }
+
+function displayQuestion() {
+  currentQuestion++;
+
+  if (currentQuestion >= questions.length) {
+    stopGame();
+    return;
+  }
+
+  const question = questions[currentQuestion];
+  document.getElementById('question-title').textContent = question.title;
+
+  options.innerHTML = '';
+
+  for (let i = 0; i < question.choices.length; i++) {
+    const option = document.createElement('div');
+    option.textContent = question.choices[i];
+    option.onclick = onSelectAnswer;
+    option.classList.add('option');
+
+    options.appendChild(option);
+  }
+}
+
+function onStartGame() {
+  secondsLeft = 75;
+  score = 0;
+  currentQuestion = -1;
+
+  countdownTimer = setInterval(() => {
+    if (secondsLeft > 0) {
+      secondsLeft--;
+      timer.textContent = 'Time Left: ' + secondsLeft;
+    } else {
+      stopGame();
+    }
+  }, 1000);
+
+  quizIntro.style.display = 'none';
+  result.style.display = 'none';
+  quiz.style.display = 'block';
+
+  displayQuestion();
+}
+
+
+startQuiz.addEventListener('click', onStartGame);
+saveScore.addEventListener('click', onSaveScore);
+viewScores.addEventListener('click', onViewScores);
+playAgain.addEventListener('click', onStartGame);
