@@ -14,9 +14,9 @@ const message = document.getElementById('message');
 const timer = document.getElementById('timer');
 const summary = document.getElementById('summary');
 
-let secondsLeft = 0;
+let secondsLeft = 75;
 let score = 0;
-let currentQuestion = -1;
+let currentQuestion = 0;
 let countdownTimer;
 
 
@@ -51,8 +51,15 @@ function onSelectAnswer(e) {
     score--;
     displayMessage('Wrong :-(');
   }
+currentQuestion++;
+
+if (currentQuestion >= questions.length) {
+  stopGame();
+
+}else{
 
   displayQuestion();
+};
 }
 
 function displayMessage(msg) {
@@ -64,32 +71,35 @@ function displayMessage(msg) {
 }
 
 function displayQuestion() {
-  currentQuestion++;
+  // currentQuestion++;
 
-  if (currentQuestion >= questions.length) {
-    stopGame();
-    return;
-  }
+  // if (currentQuestion >= questions.length) {
+  //   stopGame();
+  //   return;
+  // }
 
-  const question = questions[currentQuestion];
-  document.getElementById('question-title').textContent = question.title;
+  const questionArray = questions[currentQuestion];
+  console.log(questionArray.question);
+  document.getElementById('question-title').textContent = questionArray.question;
 
   options.innerHTML = '';
 
-  for (let i = 0; i < question.choices.length; i++) {
-    const option = document.createElement('div');
-    option.textContent = question.choices[i];
+  for (let i = 0; i < questionArray.choices.length; i++) {
+    const option = document.createElement('buttons');
+
+    option.setAttribute("class","optionBtn")
+    option.textContent = questionArray.choices[i];
     option.onclick = onSelectAnswer;
-    option.classList.add('option');
+    // option.classList.add('option');
 
     options.appendChild(option);
   }
 }
 
 function onStartGame() {
-  secondsLeft = 75;
-  score = 0;
-  currentQuestion = -1;
+  // secondsLeft = 75;
+  // score = 0;
+  // currentQuestion = -1;
 
   countdownTimer = setInterval(() => {
     if (secondsLeft > 0) {
