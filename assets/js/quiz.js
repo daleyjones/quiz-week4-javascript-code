@@ -1,22 +1,23 @@
-const startQuiz = document.getElementById('startQuiz');
-const saveButton = document.getElementById('saveScore');
-const viewScores = document.getElementById('viewScores');
-const playAgain = document.getElementById('playAgain');
+var startQuiz = document.getElementById('startQuiz');
+var saveButton = document.getElementById('saveScore');
+var viewScores = document.getElementById('viewScores');
+var playAgain = document.getElementById('playAgain');
 
-const quizIntro = document.getElementById('quiz-title');
-const quiz = document.getElementById('quiz');
-const result = document.getElementById('result');
+var quizIntro = document.getElementById('quiz-title');
+var quiz = document.getElementById('quiz');
+var result = document.getElementById('result');
 
-const options = document.getElementById('options');
-const message = document.getElementById('message');
+var options = document.getElementById('options');
+var message = document.getElementById('message');
 
-const timer = document.getElementById('timer');
-const summary = document.getElementById('summary');
+var timer = document.getElementById('timer');
+var summary = document.getElementById('summary');
 
 let secondsLeft = 75;
 let score = 0;
 let currentQuestion = 0;
 let countdownTimer;
+
 
 function stopGame() {
   clearInterval(countdownTimer);
@@ -26,21 +27,22 @@ function stopGame() {
   summary.textContent = 'Your Score Is ' + score;
 }
 
-function onSaveScore() {
-  const initials = document.getElementById('initials').value.trim();
-  if (initials !== '') {
+function onSaveScore(e) {
+  var initials = document.getElementById('initials').value
+
+  if (initials !== "") {
     localStorage.setItem(initials, score);
-    document.getElementById('initials').value = '';
+    document.getElementById("initials").value = "";
   }
 }
 
-function onViewScores() {
-  window.location.href = 'assets/scores.html';
+function onViewScores(e) {
+  window.location.href = "assets/scores.html";
 }
 
 function onSelectAnswer(e) {
-  const correctAnswer = questions[currentQuestion].answer;
-  const userAnswer = e.target.textContent;
+  var correctAnswer = questions[currentQuestion].answer;
+  var userAnswer = e.target.textContent;
 
   if (correctAnswer === userAnswer) {
     score++;
@@ -69,14 +71,14 @@ function displayMessage(msg) {
 }
 
 function displayQuestion() {
-  const questionArray = questions[currentQuestion];
+  var questionArray = questions[currentQuestion];
   console.log(questionArray.question);
   document.getElementById('question-title').textContent = questionArray.question;
 
   options.innerHTML = '';
 
   for (let i = 0; i < questionArray.choices.length; i++) {
-    const option = document.createElement('button');
+    var option = document.createElement('button');
 
     option.setAttribute("class","optionBtn")
     option.textContent = questionArray.choices[i];

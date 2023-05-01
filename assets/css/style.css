@@ -54,24 +54,39 @@ h1 {
   font-size: 1.2rem;
   cursor: pointer;
   margin-top: 20px;
+  align-items: center;
 }
 
 .hidden {
   display: none;
 }
 
-label {
+
+h2{
+display: flex;
+margin: 20px;
+  padding: 10px;
+  color: #07d56b;
+
+
+
+}
+
+
+
+/* label {
   display: block;
   margin-bottom: 10px;
   font-size: 1.1rem;
   color: #333;
-}
+} */
 
-input[type="radio"] {
+/* input[type="radio"] {
   margin-right: 10px;
-}
+} */
 
 #options {
+  color:orange;
   margin-bottom: 20px;
   margin-top: 50px;
   padding: 20px;
@@ -79,9 +94,9 @@ input[type="radio"] {
 
 .optionBtn {
   margin: 20px;
-  padding: 20px;
+  padding: 10px;
   background-color: #fff;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 #message {
