@@ -1,6 +1,5 @@
-
 const startQuiz = document.getElementById('startQuiz');
-const saveScore = document.getElementById('saveScore');
+const saveButton = document.getElementById('saveScore');
 const viewScores = document.getElementById('viewScores');
 const playAgain = document.getElementById('playAgain');
 
@@ -18,7 +17,6 @@ let secondsLeft = 75;
 let score = 0;
 let currentQuestion = 0;
 let countdownTimer;
-
 
 function stopGame() {
   clearInterval(countdownTimer);
@@ -48,18 +46,18 @@ function onSelectAnswer(e) {
     score++;
     displayMessage('Correct');
   } else {
-    score--;
+    secondsLeft -= 5;
     displayMessage('Wrong :-(');
   }
-currentQuestion++;
+  currentQuestion++;
 
-if (currentQuestion >= questions.length) {
-  stopGame();
+  if (currentQuestion >= questions.length) {
+    stopGame();
 
-}else{
+  } else {
 
-  displayQuestion();
-};
+    displayQuestion();
+  };
 }
 
 function displayMessage(msg) {
@@ -71,13 +69,6 @@ function displayMessage(msg) {
 }
 
 function displayQuestion() {
-  // currentQuestion++;
-
-  // if (currentQuestion >= questions.length) {
-  //   stopGame();
-  //   return;
-  // }
-
   const questionArray = questions[currentQuestion];
   console.log(questionArray.question);
   document.getElementById('question-title').textContent = questionArray.question;
@@ -85,21 +76,18 @@ function displayQuestion() {
   options.innerHTML = '';
 
   for (let i = 0; i < questionArray.choices.length; i++) {
-    const option = document.createElement('buttons');
+    const option = document.createElement('button');
 
     option.setAttribute("class","optionBtn")
     option.textContent = questionArray.choices[i];
     option.onclick = onSelectAnswer;
-    // option.classList.add('option');
 
     options.appendChild(option);
   }
 }
 
 function onStartGame() {
-  // secondsLeft = 75;
-  // score = 0;
-  // currentQuestion = -1;
+  secondsLeft -= 5;
 
   countdownTimer = setInterval(() => {
     if (secondsLeft > 0) {
@@ -119,6 +107,6 @@ function onStartGame() {
 
 
 startQuiz.addEventListener('click', onStartGame);
-saveScore.addEventListener('click', onSaveScore);
+saveButton.addEventListener('click', onSaveScore);
 viewScores.addEventListener('click', onViewScores);
 playAgain.addEventListener('click', onStartGame);
