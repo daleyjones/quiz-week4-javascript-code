@@ -12,10 +12,10 @@ After all the questions have been answered, you will see your final score and ha
 Click "Play Again" to start a new quiz.
 
 # Technologies Used
-HTML
-CSS
-JavaScript
-Credits
+1. HTML
+2. CSS
+3. JavaScript
+
 
 
 # License

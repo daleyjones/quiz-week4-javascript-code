@@ -1,17 +1,17 @@
-var startQuiz = document.getElementById('startQuiz');
-var saveButton = document.getElementById('saveScore');
-var viewScores = document.getElementById('viewScores');
-var playAgain = document.getElementById('playAgain');
+ startQuiz = document.getElementById('startQuiz');
+ saveButton = document.getElementById('saveScore');
+ viewScores = document.getElementById('viewScores');
+ playAgain = document.getElementById('playAgain');
 
-var quizIntro = document.getElementById('quiz-title');
-var quiz = document.getElementById('quiz');
-var result = document.getElementById('result');
+ quizIntro = document.getElementById('quiz-title');
+ quiz = document.getElementById('quiz');
+ result = document.getElementById('result');
 
-var options = document.getElementById('options');
-var message = document.getElementById('message');
+ options = document.getElementById('options');
+ message = document.getElementById('message');
 
-var timer = document.getElementById('timer');
-var summary = document.getElementById('summary');
+ timer = document.getElementById('timer');
+ summary = document.getElementById('summary');
 
 let secondsLeft = 75;
 let score = 0;
@@ -28,7 +28,7 @@ function stopGame() {
 }
 
 function onSaveScore(e) {
-  var initials = document.getElementById('initials').value
+   initials = document.getElementById('initials').value
 
   if (initials !== "") {
     localStorage.setItem(initials, score);
@@ -41,8 +41,8 @@ function onViewScores(e) {
 }
 
 function onSelectAnswer(e) {
-  var correctAnswer = questions[currentQuestion].answer;
-  var userAnswer = e.target.textContent;
+   correctAnswer = questions[currentQuestion].answer;
+   userAnswer = e.target.textContent;
 
   if (correctAnswer === userAnswer) {
     score++;
@@ -71,14 +71,14 @@ function displayMessage(msg) {
 }
 
 function displayQuestion() {
-  var questionArray = questions[currentQuestion];
+   questionArray = questions[currentQuestion];
   console.log(questionArray.question);
   document.getElementById('question-title').textContent = questionArray.question;
 
   options.innerHTML = '';
 
   for (let i = 0; i < questionArray.choices.length; i++) {
-    var option = document.createElement('button');
+     option = document.createElement('button');
 
     option.setAttribute("class","optionBtn")
     option.textContent = questionArray.choices[i];
