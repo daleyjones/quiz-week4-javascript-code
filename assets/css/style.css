@@ -34,9 +34,7 @@ header div a {
   text-decoration: none;
 }
 
-header div time {
-  color: #eb0707;
-}
+
 
 main {
   min-height: 500px;
@@ -80,21 +78,8 @@ margin: 20px;
 
 }
 
-
-
-/* label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-  color: #333;
-} */
-
-/* input[type="radio"] {
-  margin-right: 10px;
-} */
-
 #options {
-  color:orange;
+  
   margin-bottom: 20px;
   margin-top: 50px;
   padding: 20px;
@@ -103,35 +88,36 @@ margin: 20px;
 .optionBtn {
   margin: 20px;
   padding: 10px;
-  /* background-color: #fff; */
-  color: rgb(0, 0, 0);
+  font-size: 20px;
+ background-color :#0b3bff;
+  color: var(--tertiary-color);
 }
 
 #message {
   margin-bottom: 20px;
   font-size: 1.1rem;
-  color: #333;
+  color:var(--tertiary-color);
 }
 
 #result {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--tertiary-color);
   border-radius: 10px;
 }
 
 #summary {
   margin-bottom: 20px;
   font-size: 1.2rem;
-  color: #333;
+  color: #ff0303;
 }
 
 input[type="text"] {
   padding: 10px;
   margin-right: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   font-size: 1.1rem;
 }
 
@@ -144,7 +130,7 @@ input[type="text"] {
 }
 
 #playAgain {
-  background-color: #333;
+  background-color:#0b3bff;
   color: var(--tertiary-color);
   border: none;
   padding: 10px 20px;
