@@ -1,23 +1,25 @@
- startQuiz = document.getElementById('startQuiz');
- saveButton = document.getElementById('saveScore');
- viewScores = document.getElementById('viewScores');
- playAgain = document.getElementById('playAgain');
+const correctSound = new Audio('assets/css/mp3/Quiz-correct-sound-with-applause.mp3');
+const wrongSound = new Audio('assets/css/mp3/Wrong-answer-sound-effect.mp3');
 
- quizIntro = document.getElementById('quiz-title');
- quiz = document.getElementById('quiz');
- result = document.getElementById('result');
+let startQuiz = document.getElementById('startQuiz');
+let saveButton = document.getElementById('saveScore');
+let viewScores = document.getElementById('viewScores');
+let playAgain = document.getElementById('playAgain');
 
- options = document.getElementById('options');
- message = document.getElementById('message');
+let quizIntro = document.getElementById('quiz-title');
+let quiz = document.getElementById('quiz');
+let result = document.getElementById('result');
 
- timer = document.getElementById('timer');
- summary = document.getElementById('summary');
+let options = document.getElementById('options');
+let message = document.getElementById('message');
+
+let timer = document.getElementById('timer');
+let summary = document.getElementById('summary');
 
 let secondsLeft = 75;
 let score = 0;
 let currentQuestion = 0;
 let countdownTimer;
-
 
 function stopGame() {
   clearInterval(countdownTimer);
@@ -28,7 +30,7 @@ function stopGame() {
 }
 
 function onSaveScore(e) {
-   initials = document.getElementById('initials').value
+  let initials = document.getElementById('initials').value
 
   if (initials !== "") {
     localStorage.setItem(initials, score);
@@ -37,19 +39,21 @@ function onSaveScore(e) {
 }
 
 function onViewScores(e) {
-  window.location.href = "assets/css/style.css";
+  window.location.href ="assets/scores.html";
 }
 
 function onSelectAnswer(e) {
-   correctAnswer = questions[currentQuestion].answer;
-   userAnswer = e.target.textContent;
+  let correctAnswer = questions[currentQuestion].answer;
+  let userAnswer = e.target.textContent;
 
   if (correctAnswer === userAnswer) {
     score++;
     displayMessage('Correct');
+    correctSound.play();
   } else {
     secondsLeft -= 5;
     displayMessage('Wrong :-(');
+    wrongSound.play();
   }
   currentQuestion++;
 
@@ -71,14 +75,14 @@ function displayMessage(msg) {
 }
 
 function displayQuestion() {
-   questionArray = questions[currentQuestion];
+  let questionArray = questions[currentQuestion];
   console.log(questionArray.question);
   document.getElementById('question-title').textContent = questionArray.question;
 
   options.innerHTML = '';
 
   for (let i = 0; i < questionArray.choices.length; i++) {
-     option = document.createElement('button');
+    let option = document.createElement('button');
 
     option.setAttribute("class","optionBtn")
     option.textContent = questionArray.choices[i];
@@ -106,7 +110,6 @@ function onStartGame() {
 
   displayQuestion();
 }
-
 
 startQuiz.addEventListener('click', onStartGame);
 saveButton.addEventListener('click', onSaveScore);
