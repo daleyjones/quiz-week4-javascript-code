@@ -37,7 +37,7 @@ function onSaveScore(e) {
 }
 
 function onViewScores(e) {
-  window.location.href = "assets/scores.html";
+  window.location.href = "assets/css/style.css";
 }
 
 function onSelectAnswer(e) {
