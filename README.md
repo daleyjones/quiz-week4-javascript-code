@@ -16,6 +16,14 @@ Click "Play Again" to start a new quiz.
 2. CSS
 3. JavaScript
 
+## Credits
+This project was created by [Daley Jones].
+
+
+![Screenshot of my quiz page .](./assets/css/images/quizz.png)
+
+
+
 
 
 # License
