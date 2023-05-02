@@ -1,4 +1,4 @@
-# Quiz 
+# JavaScript Quiz 
 This is a simple quiz application built with HTML, CSS, and JavaScript. It features multiple choice questions with a timer and the ability to save scores.
 
 # Getting Started
@@ -17,7 +17,7 @@ Click "Play Again" to start a new quiz.
 3. JavaScript
 
 ## Credits
-This project was created by [Daley Jones].
+This Quiz project was created by [Daley Jones].
 
 
 ![Screenshot of my quiz page .](./assets/css/images/quizz.png)

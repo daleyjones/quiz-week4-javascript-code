@@ -10,7 +10,7 @@
 .score-item{
 
     min-width: 150px;
-   
+    grid-template-columns: minmax(150px, 1.33fr) minmax(150px, 2.33fr);
     
     
     }
