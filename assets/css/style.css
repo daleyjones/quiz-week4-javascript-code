@@ -105,12 +105,14 @@ margin: 20px;
 }
 
 #result {
+ 
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: var(--tertiary-color);
   border-radius: 10px;
 }
+
 
 #summary {
   margin-bottom: 20px;
@@ -142,4 +144,10 @@ input[type="text"] {
   border-radius: 5px;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .btn {
+    font-size: 0.8rem;
+  }
 }

@@ -39,7 +39,7 @@ function onSaveScore(e) {
 }
 
 function onViewScores(e) {
-  window.location.href ="assets/scores.html";
+  window.location.href ="scores.html";
 }
 
 function onSelectAnswer(e) {
@@ -93,9 +93,10 @@ function displayQuestion() {
 }
 
 function onStartGame() {
-  secondsLeft -= 5;
+  score =0;
+  currentQuestion=0;
 
-  countdownTimer = setInterval(() => {
+ countdownTimer = setInterval(() => {
     if (secondsLeft > 0) {
       secondsLeft--;
       timer.textContent = 'Time Left: ' + secondsLeft;

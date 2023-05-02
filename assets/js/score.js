@@ -1,6 +1,9 @@
 function onbackToQuiz() {
     window.location.href = 'index.html';
-  
+}
+
+const scoresheet = document.getElementById("scoresheet");
+
     for (var i = 0; i < localStorage.length; i++) {
       var initials = localStorage.key(i);
       var score = localStorage.getItem(initials);
@@ -13,7 +16,7 @@ function onbackToQuiz() {
   
       scoresheet.appendChild(result);
     }
-  }
+  
   
   backtoQuiz.addEventListener("click", onbackToQuiz);
   

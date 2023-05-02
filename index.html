@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
     <title>My quiz</title>
   </head>
 
   <body>
     <header>
       <div id="highscores">
-        <a href="assets/scores.html">High Score</a>
+        <a href="scores.html">High Score</a>
       </div>
       <div id="timer"></div>
     </header>
@@ -25,17 +26,6 @@
 
         <div id="options"></div>
 
-        <audio id="correct-sound" preload="auto">
-          <source
-            src="Quiz-correct-sound-with-applause.mp3"
-            type="audio/mpeg"
-          />
-        </audio>
-
-        <audio id="wrong-sound" preload="auto">
-          <source src="Wrong-answer-sound-effect.mp3" type="audio/mpeg" />
-        </audio>
-
         <div id="message"></div>
       </div>
 
@@ -46,6 +36,7 @@
         <button id="saveScore" class="button">Save Score</button>
         <button id="playAgain" class="button">Play Again</button>
       </div>
+
       <script src="assets/js/question.js"></script>
       <script src="assets/js/quiz.js"></script>
     </main>
