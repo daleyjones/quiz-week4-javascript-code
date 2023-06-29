@@ -1,5 +1,5 @@
-const correctSound = new Audio('assets/css/mp3/Quiz-correct-sound-with-applause.mp3');
-const wrongSound = new Audio('assets/css/mp3/Wrong-answer-sound-effect.mp3');
+const correctSound = new Audio('assets/mp3/Quiz-correct-sound-with-applause.mp3');
+const wrongSound = new Audio('assets/mp3/Wrong-answer-sound-effect.mp3');
 
 let startQuiz = document.getElementById('startQuiz');
 let saveButton = document.getElementById('saveScore');
@@ -30,16 +30,19 @@ function stopGame() {
 }
 
 function onSaveScore(e) {
-  let initials = document.getElementById('initials').value
+  e.preventDefault(); // Prevent form submission
+
+  let initials = document.getElementById('initials').value;
 
   if (initials !== "") {
     localStorage.setItem(initials, score);
     document.getElementById("initials").value = "";
+    window.location.href = "scores.html"; // Redirect to the high-scores screen
   }
 }
 
 function onViewScores(e) {
-  window.location.href ="scores.html";
+  window.location.href = "scores.html";
 }
 
 function onSelectAnswer(e) {
@@ -59,11 +62,9 @@ function onSelectAnswer(e) {
 
   if (currentQuestion >= questions.length) {
     stopGame();
-
   } else {
-
     displayQuestion();
-  };
+  }
 }
 
 function displayMessage(msg) {
@@ -84,7 +85,7 @@ function displayQuestion() {
   for (let i = 0; i < questionArray.choices.length; i++) {
     let option = document.createElement('button');
 
-    option.setAttribute("class","optionBtn")
+    option.setAttribute("class", "optionBtn");
     option.textContent = questionArray.choices[i];
     option.onclick = onSelectAnswer;
 
@@ -93,10 +94,10 @@ function displayQuestion() {
 }
 
 function onStartGame() {
-  score =0;
-  currentQuestion=0;
+  score = 0;
+  currentQuestion = 0;
 
- countdownTimer = setInterval(() => {
+  countdownTimer = setInterval(() => {
     if (secondsLeft > 0) {
       secondsLeft--;
       timer.textContent = 'Time Left: ' + secondsLeft;

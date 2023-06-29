@@ -16,11 +16,15 @@ Click "Play Again" to start a new quiz.
 2. CSS
 3. JavaScript
 
+
+## Deployed link
+[Click here to access the deployed quiz](https://daleyjones.github.io/quiz-week4-java-code/)
+
 ## Credits
 This Quiz project was created by [Daley Jones].
 
 
-![Screenshot of my quiz page .](./assets/css/images/quizz.png)
+![Screenshot of my quiz page .](./assets/images/quizz.png)
 
 
 

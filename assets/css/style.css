@@ -11,7 +11,8 @@ body {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   height: 100vh;
-  background-image: url("../css/images/jr-korpa-7uDkfFwy_V0-unsplash.jpg");
+  background-image: url("/assets/images/jr-korpa-7uDkfFwy_V0-unsplash.jpg");
+
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center center;
