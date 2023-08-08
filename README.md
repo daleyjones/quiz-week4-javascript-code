@@ -18,7 +18,7 @@ Click "Play Again" to start a new quiz.
 
 
 ## Deployed link
-[Click here to access the deployed quiz](https://daleyjones.github.io/quiz-week4-java-code/)
+[Click here to access the deployed quiz](https://daleyjones.github.io/quiz-week4-javascript-code/)
 
 ## Credits
 This Quiz project was created by [Daley Joness].
