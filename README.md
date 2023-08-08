@@ -21,7 +21,7 @@ Click "Play Again" to start a new quiz.
 [Click here to access the deployed quiz](https://daleyjones.github.io/quiz-week4-java-code/)
 
 ## Credits
-This Quiz project was created by [Daley Jones].
+This Quiz project was created by [Daley Joness].
 
 
 ![Screenshot of my quiz page .](./assets/images/quizz.png)
